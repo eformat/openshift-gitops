@@ -7,7 +7,7 @@ export GITOPS_NAMESPACES=labs-ci-cd,ateam-ci-cd
 echo 
 echo "Installing the OpenShift GitOps Operator Subscription and Cluster RBAC:"
 oc apply -k openshift-gitops/cluster
-oc apply -f openshift-gitops/cluster/subscription-openshift-gitops.yaml
+sed "s/GITOPS_NAMESPACES/$GITOPS_NAMESPACES/" openshift-gitops/cluster/subscription-openshift-gitops.yaml | oc apply -f-
 
 echo
 echo "Waiting for CRD's to exist"

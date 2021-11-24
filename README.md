@@ -15,10 +15,27 @@ export GITOPS_NAMESPACES=labs-ci-cd,ateam-ci-cd
 Deploy the Cluster resources
 ```bash
 oc apply -k openshift-gitops/cluster
-oc apply -f openshift-gitops/cluster/subscription-openshift-gitops.yaml
+sed "s/GITOPS_NAMESPACES/$GITOPS_NAMESPACES/" openshift-gitops/cluster/subscription-openshift-gitops.yaml | oc apply -f-
 ```
 
 Team ArgoCD instances
 ```
 oc apply -k .
+```
+
+## Helper Scripts
+
+Deploy GitOps
+```bash
+./bootstrap-cluster.sh
+```
+
+Deploy some test Apps including ones with CRD's
+```bash
+./test-apps.sh
+```
+
+Delete it all
+```bash
+./delete.sh
 ```

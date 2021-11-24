@@ -15,4 +15,4 @@ spec:
     - name: DISABLE_DEFAULT_ARGOCD_INSTANCE  # dont deploy default argocd in openshift-gitops
       value: 'true'
     - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES # deploy cluster scoped argocd in these namespaces
-      value: ${GITOPS_NAMESPACES}
+      value: GITOPS_NAMESPACES

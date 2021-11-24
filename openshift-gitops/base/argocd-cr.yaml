@@ -13,12 +13,12 @@ spec:
   repositoryCredentials: null
   resourceExclusions: |
     - apiGroups:
-      - tekton.dev
+        - tekton.dev
       clusters:
-      - '*'
+        - '*'
       kinds:
-      - TaskRun
-      - PipelineRun
+        - TaskRun
+        - PipelineRun
   server:
     route:
       enabled: true

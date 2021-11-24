@@ -1,0 +1,3 @@
+resources:
+- openshift-gitops/overlays/ateam-ci-cd
+- openshift-gitops/overlays/labs-ci-cd

@@ -1,0 +1,33 @@
+bases:
+- ../../base
+
+resources:
+- namespace.yaml
+- argocd-application-controller-clusterrolebinding.yaml
+- argocd-server-clusterrolebinding.yaml
+
+patches:
+  - patch: |
+      - op: add
+        path: /metadata/namespace
+        value: ateam-ci-cd
+    target:
+      group: argoproj.io
+      version: v1alpha1
+      kind: ArgoCD
+  - patch: |
+      - op: replace
+        path: /spec/applicationInstanceLabelKey
+        value: rht-labs.com/ateam-ci-cd
+    target:
+      group: argoproj.io
+      version: v1alpha1
+      kind: ArgoCD
+  - patch: |
+      - op: add
+        path: /metadata/namespace
+        value: ateam-ci-cd
+    target:
+      group: argoproj.io
+      version: v1alpha1
+      kind: AppProject

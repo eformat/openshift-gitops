@@ -7,12 +7,12 @@ Deploy multiple Team ArgoCD GitOps instances that have cluster admin privilege u
 
 Define the team deployments projects and add a Kustomize `overlay` to match in the `openshift-gitops/overlays` folder.
 
-Deploy the GitOps operator. We tell the operator where we want to deploy cluster scoped ArgoCD GitOps instances.
+We tell the operator where we want to deploy cluster scoped ArgoCD GitOps instances.
 ```bash
 export GITOPS_NAMESPACES=labs-ci-cd,ateam-ci-cd
 ```
 
-Deploy the Cluster resources
+Deploy the Cluster resources and GitOps operator.
 ```bash
 oc apply -k openshift-gitops/cluster
 sed "s/GITOPS_NAMESPACES/$GITOPS_NAMESPACES/" openshift-gitops/cluster/subscription-openshift-gitops.yaml | oc apply -f-

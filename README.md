@@ -18,7 +18,7 @@ oc apply -k openshift-gitops/cluster
 sed "s/GITOPS_NAMESPACES/$GITOPS_NAMESPACES/" openshift-gitops/cluster/subscription-openshift-gitops.yaml | oc apply -f-
 ```
 
-Team ArgoCD instances
+Deploy Team ArgoCD instances
 ```
 oc apply -k .
 ```
